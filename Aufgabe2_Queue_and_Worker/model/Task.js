@@ -3,7 +3,7 @@ var tasks = ["Lernen","Schlafen","Essen"];
 var Task = {};
 
 Task.add = function (name){
-    taks.push(name);
+    tasks.push(name);
 }
 
 Task.getAll = function (name){

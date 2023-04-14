@@ -3,6 +3,7 @@
 <ul id="task">
 
 </ul>
+<input type="text" id="task" name="task"><button onclick="addTask()">Add Task</button>
 <script src="/socket.io/socket.io.js"></script>
 <script>
     var socket = io();
@@ -20,4 +21,10 @@
             taskList.innerHTML += `<li>${task}</li>`
         }
     });
+
+    function addTask(){
+        var task = document.querySelector('[name="task"]').value;
+        console.log(task);
+        socket.emit("addTask",task);
+    }
 </script>

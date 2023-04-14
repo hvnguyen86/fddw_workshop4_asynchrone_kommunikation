@@ -71,6 +71,12 @@ io.on("connection", socket => {
         socket.emit("tasks",tasks);
       } 
     });
+
+    socket.on("addTask",function(task){
+      Task.add(task);
+      var tasks = Task.getAll();
+      socket.emit("tasks",tasks);
+    });
   
     socket.on("processTask",function(msg){
       if(msg == "nextTask") {
