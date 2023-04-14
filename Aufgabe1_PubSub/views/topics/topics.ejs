@@ -1,0 +1,8 @@
+<% layout('../layout') -%>
+<h1><%= title %></h1>
+
+<ul>
+    <% topics.forEach(function(topic){ %>
+      <li><a href="/topics/<%= topic %>"><%= topic %></a></li>
+    <% }); %>
+</ul>

@@ -1,0 +1,11 @@
+<% layout('../layout') -%>
+<h1><%= title %></h1>
+<form action="/news" method="post">
+    <select name="topic" id="">
+        <% topics.forEach(function(topic){ %>
+            <option value="<%= topic %>"><%= topic %></option>
+          <% }); %>
+    </select>
+    <input type="text" name="news" placeholder="news" >
+    <button type="submit">Submit</button>
+</form>

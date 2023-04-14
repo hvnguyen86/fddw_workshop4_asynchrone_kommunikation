@@ -1,0 +1,23 @@
+<% layout('../layout') -%>
+<h1><%= title %></h1>
+<ul id="task">
+
+</ul>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io();
+
+    socket.on("connect",function(){
+        socket.emit("tasks","getAll");
+    });
+
+    
+    socket.on("tasks", function(tasks){
+        var taskList = document.getElementById("task");
+        taskList.innerHTML = "";
+        for (let index = 0; index < tasks.length; index++) {
+            const task = tasks[index];
+            taskList.innerHTML += `<li>${task}</li>`
+        }
+    });
+</script>

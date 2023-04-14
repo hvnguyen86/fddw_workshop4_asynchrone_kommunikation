@@ -1,0 +1,19 @@
+<% layout('../layout') -%>
+<h1>Topic <%= topicname %> </h1>
+<h2>News</h2>
+<div id="news">
+
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+   
+   var topicname = "<%= topicname %>";
+
+    var socket = io("/"+topicname);
+    var chatArea = document.getElementById("news");
+    
+    socket.on("message",function(msg){
+        chatArea.innerHTML += `${msg} <br>`;
+    });
+</script>
